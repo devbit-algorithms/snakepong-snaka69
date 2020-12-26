@@ -14,6 +14,9 @@ class Snake:
     self.tail.append(SnakePiece(self._x + 2, self._y))
     self.tail.append(SnakePiece(self._x + 3, self._y))
     self.tail.append(SnakePiece(self._x + 4, self._y))
+    self.tail.append(SnakePiece(self._x + 5, self._y))
+    self.tail.append(SnakePiece(self._x + 6, self._y))
+    self.oldTail = self.tail
         
   def up(self):
     if(self.prevDirection != "down"):
@@ -40,7 +43,12 @@ class Snake:
     newTail.append(SnakePiece(self.tail[1]._x,self.tail[1]._y))
     newTail.append(SnakePiece(self.tail[2]._x,self.tail[2]._y))
     newTail.append(SnakePiece(self.tail[3]._x,self.tail[3]._y))
+    newTail.append(SnakePiece(self.tail[4]._x,self.tail[4]._y))
+    newTail.append(SnakePiece(self.tail[5]._x,self.tail[5]._y))
+    self.oldTail = self.tail
+    self.oldTail.pop(0)
     self.tail = newTail
+    
 
   def drawSnake(self, canvas):
     self.field = canvas
@@ -70,4 +78,15 @@ class Snake:
     self.shiftTail()
   
   def detectColission(self, canvas):
-    
+    if(canvas.getPixel(self._x, self._y) == "#" or (self.tailCollission())):
+      return True
+    return False
+  
+  def tailCollission(self):
+    for i in self.oldTail:
+      if(self._x == i._x and self._y == i._y ):
+
+        return True
+
+      
+    return False

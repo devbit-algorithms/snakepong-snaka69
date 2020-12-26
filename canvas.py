@@ -39,3 +39,5 @@ class Canvas:
         if (x == 0 or y == 0 or x == self.width-1 or y == self.height-1):
           self.draw(x,y, "#")
 
+  def getPixel(self, x, y):
+    return self.canvas[y][x]

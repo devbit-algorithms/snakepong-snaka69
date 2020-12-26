@@ -26,10 +26,12 @@ def on_press(key):
       snake.right()
     
 
-canvas = Canvas(20, 30)
+canvas = Canvas(15, 50)
 snake = Snake(10, 5)    
 snake.left()
-while(1):
+
+gameover = False
+while(not gameover):
   with Listener(on_press=on_press) as ls:
     def time_out(period_sec: int):
         time.sleep(period_sec)  # Listen to keyboard for period_sec seconds
@@ -37,13 +39,17 @@ while(1):
         os.system('cls' if os.name == 'nt' else 'clear')
 
 
-    Thread(target=time_out, args=(1,)).start()
+    Thread(target=time_out, args=(0.5,)).start()
     ls.join()
     snake.move()
+
     canvas.clear()
     canvas.createBorder()
+    if(snake.detectColission(canvas)): 
+      gameover = True
     canvas = snake.drawSnake(canvas)
     canvas.print()
-    
 
+os.system('cls' if os.name == 'nt' else 'clear')
+print("gg")     
     
