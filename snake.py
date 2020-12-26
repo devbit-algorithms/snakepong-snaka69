@@ -1,4 +1,4 @@
-from snakePiece import SnakePiece
+from entity import Entity
 from canvas import Canvas
 class Snake:
   def __init__(self, x, y):
@@ -9,13 +9,13 @@ class Snake:
     self._x = x
     self._y = y
     self.tail = []
-    self.tail.append(SnakePiece(self._x, self._y))
-    self.tail.append(SnakePiece(self._x + 1, self._y))
-    self.tail.append(SnakePiece(self._x + 2, self._y))
-    self.tail.append(SnakePiece(self._x + 3, self._y))
-    self.tail.append(SnakePiece(self._x + 4, self._y))
-    self.tail.append(SnakePiece(self._x + 5, self._y))
-    self.tail.append(SnakePiece(self._x + 6, self._y))
+    self.tail.append(Entity(self._x, self._y))
+    self.tail.append(Entity(self._x + 1, self._y))
+    self.tail.append(Entity(self._x + 2, self._y))
+    self.tail.append(Entity(self._x + 3, self._y))
+    self.tail.append(Entity(self._x + 4, self._y))
+    self.tail.append(Entity(self._x + 5, self._y))
+    self.tail.append(Entity(self._x + 6, self._y))
     self.oldTail = self.tail
         
   def up(self):
@@ -38,13 +38,13 @@ class Snake:
 
   def shiftTail(self):
     newTail = []
-    newTail.append(SnakePiece(self._x, self._y))
-    newTail.append(SnakePiece(self.tail[0]._x,self.tail[0]._y))
-    newTail.append(SnakePiece(self.tail[1]._x,self.tail[1]._y))
-    newTail.append(SnakePiece(self.tail[2]._x,self.tail[2]._y))
-    newTail.append(SnakePiece(self.tail[3]._x,self.tail[3]._y))
-    newTail.append(SnakePiece(self.tail[4]._x,self.tail[4]._y))
-    newTail.append(SnakePiece(self.tail[5]._x,self.tail[5]._y))
+    newTail.append(Entity(self._x, self._y))
+    newTail.append(Entity(self.tail[0]._x,self.tail[0]._y))
+    newTail.append(Entity(self.tail[1]._x,self.tail[1]._y))
+    newTail.append(Entity(self.tail[2]._x,self.tail[2]._y))
+    newTail.append(Entity(self.tail[3]._x,self.tail[3]._y))
+    newTail.append(Entity(self.tail[4]._x,self.tail[4]._y))
+    newTail.append(Entity(self.tail[5]._x,self.tail[5]._y))
     self.oldTail = self.tail
     self.oldTail.pop(0)
     self.tail = newTail
@@ -87,6 +87,4 @@ class Snake:
       if(self._x == i._x and self._y == i._y ):
 
         return True
-
-      
     return False

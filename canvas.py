@@ -41,3 +41,9 @@ class Canvas:
 
   def getPixel(self, x, y):
     return self.canvas[y][x]
+
+  def getHeight(self):
+    return self.height
+
+  def getWidth(self):
+    return self.width

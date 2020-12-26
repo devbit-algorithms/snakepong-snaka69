@@ -2,6 +2,7 @@ from pynput.keyboard import Listener, Key
 import time
 from threading import Thread
 from canvas import Canvas
+from pedal import Pedal
 from snake import Snake
 import os
 
@@ -29,6 +30,7 @@ def on_press(key):
 canvas = Canvas(15, 50)
 snake = Snake(10, 5)    
 snake.left()
+pedal = Pedal(1, 7)
 
 gameover = False
 while(not gameover):
@@ -42,14 +44,18 @@ while(not gameover):
     Thread(target=time_out, args=(0.5,)).start()
     ls.join()
     snake.move()
-
+    pedal.move(canvas)
     canvas.clear()
     canvas.createBorder()
+     
     if(snake.detectColission(canvas)): 
       gameover = True
     canvas = snake.drawSnake(canvas)
+    canvas = pedal.print(canvas)
     canvas.print()
 
 os.system('cls' if os.name == 'nt' else 'clear')
 print("gg")     
+    
+
     
