@@ -4,6 +4,7 @@ from threading import Thread
 from canvas import Canvas
 from pedal import Pedal
 from snake import Snake
+from ball import Ball
 import os
 
 
@@ -31,6 +32,8 @@ canvas = Canvas(15, 50)
 snake = Snake(10, 5)    
 snake.left()
 pedal = Pedal(1, 7)
+ball = Ball(7,7)
+
 
 gameover = False
 while(not gameover):
@@ -47,11 +50,14 @@ while(not gameover):
     pedal.move(canvas)
     canvas.clear()
     canvas.createBorder()
+    ball.move()
+    ball.wallCollision(canvas)
      
     if(snake.detectColission(canvas)): 
       gameover = True
     canvas = snake.drawSnake(canvas)
     canvas = pedal.print(canvas)
+    canvas = ball.print(canvas)
     canvas.print()
 
 os.system('cls' if os.name == 'nt' else 'clear')

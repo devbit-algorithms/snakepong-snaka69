@@ -43,3 +43,4 @@ class Pedal:
       self.up()
     else:
       self.down()
+
