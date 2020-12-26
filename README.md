@@ -11,7 +11,7 @@ En pong, de game pong is een tweedimensionaal sportspel dat tafeltennis simuleer
 :---: | ---- | ----
  x | Walls | :star:
  x | Snake Head | :star:
- x | Movement | :star: :star::star
+ x | Movement | :star: :star::star:
  x | Snake Tail | :star::star:
  x | Food | :star:
  x | Score | :star:
