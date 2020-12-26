@@ -11,9 +11,9 @@ En pong, de game pong is een tweedimensionaal sportspel dat tafeltennis simuleer
 
 Eerst moeten we pynput globaal installeren, dit doen we door de command "pip install pynput" uit te voeren.
 
-´´´
+```
 pip install pynput
-´´´
+```
 
 ## Requirements
 
