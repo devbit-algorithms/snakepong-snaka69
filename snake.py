@@ -3,6 +3,9 @@ from canvas import Canvas
 class Snake:
   def __init__(self, x, y):
     # head coords
+    self.direction = "left"
+    self.prevDirection = "left"
+    self.moveCount = 0
     self._x = x
     self._y = y
     self.tail = []
@@ -13,22 +16,21 @@ class Snake:
     self.tail.append(SnakePiece(self._x + 4, self._y))
         
   def up(self):
-    self._y -= 1
-    self.shiftTail()
+    if(self.prevDirection != "down"):
+      self.direction = "up"
 
   def down(self):
-    self._y += 1
-    self.shiftTail()
+    if(self.prevDirection != "up"):
+      self.direction = "down"
 
   
   def left(self):
-    self._x -= 1
-    self.shiftTail()
+    if(self.prevDirection != "right"):
+      self.direction = "left"
 
-  
   def right(self):
-    self._x += 1
-    self.shiftTail()
+    if(self.prevDirection != "left"):
+      self.direction = "right"
 
 
   def shiftTail(self):
@@ -46,7 +48,26 @@ class Snake:
       self.field.draw(i._x, i._y, "+")
     return canvas
 
-worm = Snake(2,5)
-screen = Canvas(10, 10)
-screen = worm.drawSnake(screen)
-screen.print()
+  def move(self):
+
+    if(self.direction == "right"):
+      self._x += 1
+      self.prevDirection = "right"
+
+    elif(self.direction == "left"):
+      self._x -= 1
+      self.prevDirection = "left"
+
+
+    elif(self.direction == "up"):
+      self._y -= 1
+      self.prevDirection = "up"
+
+
+    elif(self.direction == "down"):
+      self._y += 1
+      self.prevDirection = "down"
+    self.shiftTail()
+  
+  def detectColission(self, canvas):
+    

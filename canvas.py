@@ -32,3 +32,10 @@ class Canvas:
         field += self.canvas[y][x]
       field += "\n"
     return field
+  
+  def createBorder(self):
+    for y in range(self.height):
+      for x in range(self.width):
+        if (x == 0 or y == 0 or x == self.width-1 or y == self.height-1):
+          self.draw(x,y, "#")
+
