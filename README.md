@@ -39,7 +39,7 @@ __Game requirements__
  ## Stappenplan
  ### Stap 1: Snake
 
- ** Voor de eerste stap hebben we gekozen voor de game snake volledig functioneel te maken. Deze game bevat de volgende klasses. **
+ __Voor de eerste stap hebben we gekozen voor de game snake volledig functioneel te maken. Deze game bevat de volgende klasses.__
  * Klasse Canvas
   * Hierin wordt de game getekend.
  * Klasse
@@ -52,7 +52,7 @@ __Game requirements__
   * Item 2a
  ### Stap 2: Pong
 
- ** Voor de tweede stap hebben voor het stukje pong gekozen, hierin wordt dan een automatische op en neergaande balk geinplementeerd die de bal weerkaasts. Pong bevat volgende klasses. **
+ __Voor de tweede stap hebben voor het stukje pong gekozen, hierin wordt dan een automatische op en neergaande balk geinplementeerd die de bal weerkaasts. Pong bevat volgende klasses.__
  * Klasse ...
   * ...
  * Item 2
