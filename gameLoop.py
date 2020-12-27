@@ -32,7 +32,7 @@ canvas = Canvas(15, 50)
 snake = Snake(10, 5)    
 snake.left()
 pedal = Pedal(1, 7)
-ball = Ball(7,7)
+ball = Ball(8,7)
 
 
 gameover = False
@@ -42,26 +42,24 @@ while(not gameover):
         time.sleep(period_sec)  # Listen to keyboard for period_sec seconds
         ls.stop()
         os.system('cls' if os.name == 'nt' else 'clear')
-
-
     Thread(target=time_out, args=(0.5,)).start()
     ls.join()
+    #move entities
+    ball.collision(canvas)
+    ball.move()
     snake.move()
     pedal.move(canvas)
     canvas.clear()
     canvas.createBorder()
-    ball.move()
-    ball.wallCollision(canvas)
-     
-    if(snake.detectColission(canvas)): 
+
+    if(snake.detectColission(canvas) or ball.getgameOver()): 
       gameover = True
+    #print entities
     canvas = snake.drawSnake(canvas)
     canvas = pedal.print(canvas)
     canvas = ball.print(canvas)
     canvas.print()
-
+    print("your score: ",ball.score)
 os.system('cls' if os.name == 'nt' else 'clear')
-print("gg")     
-    
+print("Loser your score was: ",ball.score)     
 
-    

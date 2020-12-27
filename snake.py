@@ -47,8 +47,7 @@ class Snake:
     newTail.append(Entity(self.tail[5]._x,self.tail[5]._y))
     self.oldTail = self.tail
     self.oldTail.pop(0)
-    self.tail = newTail
-    
+    self.tail = newTail 
 
   def drawSnake(self, canvas):
     self.field = canvas
