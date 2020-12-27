@@ -5,7 +5,7 @@
 Deze game werd gemaakt door Jens Cocquyt en Arthur Coupé. Snakepong is namelijk opgebouwd uit twee games. Snake waarbij de speler een punt, vierkant of object op een omrand vlak bestuurt. Terwijl het vooruit beweegt, laat het een spoor achter dat lijkt op een bewegende slang.
 En pong, de game pong is een tweedimensionaal sportspel dat tafeltennis simuleert waarbij je jouw tegenstander moet verslaan.
 
-![GitHub Logo](/images/logo.png
+![](snake.gif)
 
 ## Installation
 
